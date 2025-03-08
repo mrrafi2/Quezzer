@@ -53,8 +53,8 @@ Quezzer is a dynamic, modern quiz platform built with React, Firebase, and advan
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/quezzer.git
-   cd quezzer
+   git clone https://github.com/mrrafi2/Quezzer.git
+   cd Quaser
    ```
 
 2. **Install dependencies:**
