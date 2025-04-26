@@ -1,0 +1,63 @@
+.logoContainer {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+    position: relative;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    padding: 5px 8px;
+    border-radius: 15px;
+    overflow: hidden;
+    animation: slideIn 1s ease-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    border-radius: 50%;
+  }
+  
+  .logoContainer:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .logoImg {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .logoImg:hover {
+    transform: rotate(360deg);
+  }
+  
+  .logoText {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .logoContainer:hover .logoText {
+    color: #ffe600;
+  }
+  
+  @media (max-width: 768px) {
+    .logoImg {
+      width: 60px;
+      height: 60px;
+    }
+    .logoText {
+      font-size: 1.8rem;
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  

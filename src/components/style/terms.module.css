@@ -1,0 +1,146 @@
+
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px 50px;
+    background: linear-gradient(135deg, #f2f2f2, #e6e6e6);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .header {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #2a2a2a;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  .section {
+    margin-bottom: 30px;
+    line-height: 1.8;
+  }
+  
+  .section h2 {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 15px;
+    border-left: 4px solid #00aaff;
+    padding-left: 10px;
+  }
+  
+  .section h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .section p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 15px;
+  }
+  
+  .section ul {
+    padding-left: 20px;
+    font-size: 1rem;
+    color: #444;
+  }
+  
+  .section ul li {
+    margin-bottom: 8px;
+  }
+  
+  .section a {
+    color: #00aaff;
+    text-decoration: none;
+  }
+  
+  .section a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Tablet (max-width: 768px) */
+  @media (max-width: 768px) {
+    .container {
+      padding: 30px 40px;
+    }
+    .header {
+      font-size: 2rem;
+    }
+    .section h2 {
+      font-size: 1.6rem;
+    }
+    .section p,
+    .section ul,
+    .section a {
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Mobile (max-width: 480px) */
+  @media (max-width: 480px) {
+    .container {
+      padding: 20px 25px;
+    }
+    .header {
+      font-size: 1.8rem;
+    }
+    .section h2 {
+      font-size: 1.4rem;
+    }
+    .section p,
+    .section ul,
+    .section,
+    .section a {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* dark mode */
+
+  .dark {
+    background: black;
+    color: #f1f1f1;
+  }
+  
+  .dark .header {
+    color: #ccc;
+    border-bottom-color: #555;
+  }
+  
+  .dark .section h2 {
+    color: #ddd;
+    border-left-color: #00aaff;
+  }
+  
+  .dark .section h3 {
+    color: #eee;
+  }
+  
+  .dark .section p,
+  .dark .section ul,
+  .dark .section a {
+    color: #ccc;
+  }
+  
+  .dark .section a {
+    color: #66ccff;
+  }
+  

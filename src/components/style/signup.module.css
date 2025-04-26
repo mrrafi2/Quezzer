@@ -1,0 +1,152 @@
+.signupCard {
+  padding: 3rem;
+  border-radius: 10px;
+  background: linear-gradient(
+    45deg,
+    #ff6b6b,
+    #ffbe76,
+    #f0e130,
+    #6bdfff,
+    #9c88ff,
+    #f0932b,
+    #ff6b6b
+  );
+  background-size: 600% 600%;
+  animation: borderAnimation 7s ease infinite;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes borderAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Overall container styling */
+#all {
+  background: linear-gradient(
+    45deg,
+    #ff6b6b,
+    #ffbe76,
+    #f0e130,
+    #6bdfff,
+    #9c88ff,
+    #f0932b,
+    #ff6b6b
+  );
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: fit-content;
+}
+
+.btn {
+  background: linear-gradient(45deg, #0D324D, #7F5A83);
+  border: none;
+  color: #fff;
+  width: 90%;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  transform: scale(1.03);
+  background: linear-gradient(45deg, #0a2037, #65304f);
+}
+
+.reset {
+  background: linear-gradient(45deg, #888989, #3a3a3adf);
+  border: none;
+  color: #fff;
+  width: 90%;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  margin-top: 20px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.reset:hover {
+  transform: scale(1.03);
+  background: linear-gradient(45deg, #535353, #212121);
+}
+
+.form-control {
+  font-size: 1.1rem;
+  padding: 1.2rem 0.8rem;
+}
+
+.info{
+  text-align: center;
+}
+@media (max-width: 980px) {
+  .signupCard {
+    padding: 2.5rem;
+    background-size: 900% 900%;
+    margin-top: 100px;
+   
+  }
+
+  #all {
+    height: 170vh;
+  }
+  
+  .btn, .reset {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .form-floating > .form-control {
+    font-size: 1rem;
+    padding: 1rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signupCard {
+    padding: 2rem;
+    background-size: 1000% 1000%;
+    margin-top: 0px;
+  }
+  #all {
+    height: fit-content;
+  }
+  .btn, .reset {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .form-floating > .form-control {
+    font-size: 0.9rem;
+    padding: 0.8rem 0.55rem;
+  }
+  
+  .form-label {
+    font-size: 0.5rem;
+  }
+  
+  .form-check {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+ .agree span {
+    font-size: 0.7rem;
+    position: relative;
+    top: -1.5px;
+  }
+  .signupCard h2 {
+    font-size: 1.1rem;
+  }
+  .info{
+    font-size: 0.8rem;
+  }
+}
