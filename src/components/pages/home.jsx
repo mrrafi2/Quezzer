@@ -85,7 +85,7 @@ export default function Home() {
         </div>
         <br />
         <p style={{ textAlign: "center", fontSize: "1rem" }}>
-          Made with <i className="fa-solid fa-heart" style={{ color: "#de175d" }}></i> by <strong>Rafi</strong>
+          Made by- <strong>👋 Rafi</strong>
         </p>
       </motion.div>
     </motion.div>

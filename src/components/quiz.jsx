@@ -222,8 +222,11 @@ export default function QuizCategory() {
           }
           /* Media Query for Small Screens */
           @media (max-width: 868px) {
+          .quiz-card-img{
+          width: 100%;
+          }
             .quiz-card {
-            padding: 4rem;
+            padding: 0rem;
               border-radius: 10px;
             }
 
