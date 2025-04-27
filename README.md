@@ -40,12 +40,17 @@ Quezzer is a dynamic, modern quiz platform built with React, Firebase, and advan
 
 - **React** (v19.0.0)
 - **React Router DOM** (v7.1.5) – For routing between pages.
+  
 - **Firebase** – 
   - **Firebase Authentication:** Secure user management.
   - **Firebase Realtime Database:** Real-time storage for quiz data, user profiles, badges, and progress.
+    
 - **Framer Motion** (v12.4.7) – For advanced, smooth animations in components like the progress overview.
+  
 - **React Icons** (v5.5.0) – For vector icons throughout the app.
-- - **Bootstrap** (v5) – For making resposive more easy to handle and simplification of some complex css styles.
+  
+- **Bootstrap** (v5) – For making resposive more easy to handle and simplification of some complex css styles.
+  
 - **CSS Modules & Modern CSS Animations** – To scope styling and deliver engaging animated effects.
 
 
@@ -53,8 +58,8 @@ Quezzer is a dynamic, modern quiz platform built with React, Firebase, and advan
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/mrrafi2/Quezzer.git
-   cd Quaser
+   git clone git@github.com:mrrafi2/Quezzer-Quiz.git
+   cd quezzer
    ```
 
 2. **Install dependencies:**
