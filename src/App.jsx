@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from './components/pages/home';
-import Label from './components/pages/Label';
-import Signup from './components/pages/signup';
-import Login from './components/pages/login';
-import Layout from './components/layout';
-import AboutUs from './components/about';
-import ContactUs from './components/contact';
 import { AuthProvider } from './components/contexts/AuthContext';
 import { DarkModeProvider } from "./components/contexts/DarkMode";
-import Quizzes from './components/quizs';
-import Result from './components/pages/result';
-import CategoryProgress from './components/pages/ctgProgress';
-import PrivateRoute from './components/privateRoute'; 
-import Help from './components/pages/help';
+
+import Home from './components/pages/Home';
+import Label from './components/quiz/Label';
+import Signup from './components/Auth/signup';
+import Login from './components/Auth/login';
+import Layout from './components/layout/layout';
+import AboutUs from './components/info/about';
+import ContactUs from './components/pages/Contact';
+import Quizzes from './components/quiz/QuizRunner';
+import Result from './components/pages/Result';
+import CategoryProgress from './components/pages/catProgress';
+import PrivateRoute from './components/protector/privateRoute'; 
+import Help from './components/info/Help';
 import Ranking from './components/pages/Ranking';
-import UserCategoryProgress from './components/pages/userProgress';
-import PrivacyPolicy from './components/privacy';
-import Terms from './components/terms';
+import UserCategoryProgress from './components/pages/usersProgress';
+import PrivacyPolicy from './components/info/PrivacyPolicy';
+import Terms from './components/info/TermsConditions';
+import AdminRoute from './components/protector/adminRoute';
+import AdminPanel from './components/admin/AdminPanel';
 
 const withLayout = (Component) => {
   return <Layout><Component /></Layout>;
@@ -113,6 +116,16 @@ function App() {
                   </PrivateRoute>
                 }
               />
+
+<Route
+                path="/admin"
+                element={
+                  <AdminRoute>
+                    <AdminPanel />
+                  </AdminRoute>
+                }
+              />
+
             </Routes>
           </DarkModeProvider>
         </AuthProvider>

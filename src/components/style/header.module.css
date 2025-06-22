@@ -1,31 +1,435 @@
+
 .header {
     position: sticky;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(10px); 
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px 30px;
+    background: linear-gradient(135deg, 
+      rgba(99, 102, 241, 0.1) 0%, 
+      rgba(168, 85, 247, 0.08) 25%,
+      rgba(59, 130, 246, 0.1) 50%,
+      rgba(147, 51, 234, 0.08) 75%,
+      rgba(79, 70, 229, 0.1) 100%
+    );
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 8px 32px rgba(99, 102, 241, 0.15),
+      0 4px 16px rgba(168, 85, 247, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    padding: clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 5vw, 3rem);
     z-index: 1000;
-    transition: all 0.3s ease-in-out;
-}
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
 
-.headerContainer {
+    position: relative;
+  }
+  
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: left 0.6s;
+  }
+  
+  .header:hover::before {
+    left: 100%;
+  }
+  
+  .header:hover {
+    transform: translateY(-2px) rotateX(2deg);
+    box-shadow: 
+      0 12px 40px rgba(99, 102, 241, 0.2),
+      0 6px 20px rgba(168, 85, 247, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  
+  .bgAnimation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .floatingShape1,
+  .floatingShape2,
+  .floatingShape3 {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: floatQuizzy 8s ease-in-out infinite;
+  }
+  
+  .floatingShape1 {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.3), transparent);
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .floatingShape2 {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.3), transparent);
+    top: 60%;
+    right: 15%;
+    animation-delay: -2s;
+  }
+  
+  .floatingShape3 {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent);
+    bottom: 20%;
+    left: 70%;
+    animation-delay: -4s;
+  }
+  
+  .particleEffect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(2px 2px at 30px 50px, rgba(255, 255, 255, 0.3), transparent),
+      radial-gradient(2px 2px at 80px 30px, rgba(99, 102, 241, 0.4), transparent),
+      radial-gradient(1px 1px at 120px 80px, rgba(168, 85, 247, 0.3), transparent),
+      radial-gradient(1px 1px at 200px 20px, rgba(59, 130, 246, 0.3), transparent);
+    background-size: 250px 100px;
+    animation: particleMove 20s linear infinite;
+  }
+  
+  .gradientOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(99, 102, 241, 0.05) 0%,
+      transparent 25%,
+      rgba(168, 85, 247, 0.05) 50%,
+      transparent 75%,
+      rgba(59, 130, 246, 0.05) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    pointer-events: none;
+  }
+  
+  .headerContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.headerRight {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .headerLeft,
+  .headerRight {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-@media (max-width: 768px) {
-    .header {
-        padding: 12px 20px;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .headerRight {
+    gap: 2rem;
+  }
+  
+  .logoWrapper {
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .logoWrapper:hover {
+    transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+  }
+  
+  .navWrapper,
+  .accountWrapper {
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .navWrapper:hover,
+  .accountWrapper:hover {
+    transform: translateZ(5px);
+  }
+  
+  .adminBadge {
+    position: relative;
+    left: -30px;
+    top: -20px;
+    background: linear-gradient(135deg, 
+      #FFD700 0%, 
+      #FFA500 25%,
+      #FF8C00 50%,
+      #FF6347 75%,
+      #FFD700 100%
+    );
+    background-size: 400% 400%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.55rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 2rem;
+    box-shadow: 
+      0 8px 20px rgba(255, 215, 0, 0.4),
+      0 4px 10px rgba(255, 165, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: 
+      badgeShine 4s ease-in-out infinite,
+      badgePulse 2s ease-in-out infinite alternate;
+  }
+  
+  .adminBadge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+  
+  .adminBadge:hover::before {
+    left: 100%;
+  }
+  
+  .adminBadge:hover {
+    transform: rotateX(15deg) rotateY(15deg) scale(1.1) translateZ(10px);
+    box-shadow: 
+      0 12px 30px rgba(255, 215, 0, 0.5),
+      0 6px 15px rgba(255, 165, 0, 0.4),
+      inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  }
+  
+  .adminText {
+    position: relative;
+    z-index: 2;
+    display: block;
+    animation: textGlow 3s ease-in-out infinite alternate;
+  }
+  
+  .badgeGlow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #FFD700, #FFA500, #FF8C00, #FFD700);
+    border-radius: 2rem;
+    opacity: 0;
+    animation: glowPulse 2s ease-in-out infinite alternate;
+    z-index: -1;
+  }
+  
+  .pulseEffect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.1), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulseExpand 4s ease-out infinite;
+    pointer-events: none;
+  }
+  
+  /* Keyframe Animations */
+  @keyframes floatQuizzy {
+    0%, 100% { 
+      transform: translateY(0px) rotateZ(0deg) scale(1); 
     }
-}
+    33% { 
+      transform: translateY(-20px) rotateZ(120deg) scale(1.1); 
+    }
+    66% { 
+      transform: translateY(10px) rotateZ(240deg) scale(0.9); 
+    }
+  }
+  
+  @keyframes particleMove {
+    0% { 
+      transform: translateX(0) translateY(0); 
+    }
+    100% { 
+      transform: translateX(-250px) translateY(-100px); 
+    }
+  }
+  
+  @keyframes gradientShift {
+    0% { 
+      background-position: 0% 50%; 
+    }
+    50% { 
+      background-position: 100% 50%; 
+    }
+    100% { 
+      background-position: 0% 50%; 
+    }
+  }
+  
+  @keyframes badgeShine {
+    0% { 
+      background-position: 0% 50%; 
+    }
+    50% { 
+      background-position: 100% 50%; 
+    }
+    100% { 
+      background-position: 0% 50%; 
+    }
+  }
+  
+  @keyframes badgePulse {
+    0% { 
+      transform: rotateX(0deg) rotateY(0deg) scale(1); 
+    }
+    100% { 
+      transform: rotateX(5deg) rotateY(5deg) scale(1.02); 
+    }
+  }
+  
+  @keyframes textGlow {
+    0% { 
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); 
+    }
+    100% { 
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 215, 0, 0.3); 
+    }
+  }
+  
+  @keyframes glowPulse {
+    0% { 
+      opacity: 0.3; 
+      transform: scale(0.98); 
+    }
+    100% { 
+      opacity: 0.7; 
+      transform: scale(1.02); 
+    }
+  }
+  
+  @keyframes pulseExpand {
+    0% { 
+      width: 0; 
+      height: 0; 
+      opacity: 0.8; 
+    }
+    50% { 
+      width: 200px; 
+      height: 200px; 
+      opacity: 0.3; 
+    }
+    100% { 
+      width: 400px; 
+      height: 400px; 
+      opacity: 0; 
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    .header {
+      padding: 0.75rem 1rem;
+    }
+    
+    .headerRight {
+      gap: 1rem;
+    }
+    
+    .adminBadge {
+      font-size: 0.6rem;
+      padding: 0.3rem 0.7rem;
+    }
+    
+    .floatingShape1,
+    .floatingShape2,
+    .floatingShape3 {
+      transform: scale(0.7);
+    }
+    
+    .particleEffect {
+      background-size: 150px 60px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .headerLeft,
+    .headerRight {
+      gap: 0.75rem;
+    }
+    
+    .adminBadge {
+      font-size: 0.55rem;
+      padding: 0.25rem 0.6rem;
+    }
+    
+    .header {
+      padding: 0.8rem 1rem;
+    }
+  }
+  
+
+  @media (prefers-contrast: high) {
+    .header {
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 2px solid #fff;
+    }
+    
+    .adminBadge {
+      background: #FFD700;
+      color: #000;
+    }
+  }
+  
+/* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .header,
+    .logoWrapper,
+    .navWrapper,
+    .accountWrapper,
+    .adminBadge,
+    .floatingShape1,
+    .floatingShape2,
+    .floatingShape3,
+    .particleEffect,
+    .gradientOverlay,
+    .pulseEffect {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+  

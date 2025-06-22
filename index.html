@@ -1,39 +1,75 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>Quazer</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Quazer - Challenge yourself with amazing quizzes and level up your knowledge." />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="manifest" href="/public/site.webmanifest" />
+  <!-- Primary Meta Tags -->
+  <title>Quezzer </title>
+  <meta name="description" content="Quezzer – Challenge Your Knowledge, take on fun, animated quizzes across arts, science, history, geography, tech and more. Track your score, earn badges, and level up!" />
+  <meta name="theme-color" content="#4f46e5" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Favicon and Icons -->
-    <link rel="icon" href="/public/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/public/favicon-96x96.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png" />
-    <link rel="mask-icon" href="/public/favicon.svg" color="#5bbad5" />
-    <link rel="shortcut icon" href="/public/favicon.svg" />
+  <!-- PWA Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lilita+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
 
-    <!-- Icons and Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="mask-icon" href="/favicon.svg" color="#4f46e5" />
 
-    <!-- Vite injects your app here -->
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run Quazer. It's 2025, come on now.</noscript>
-    <div id="root"></div>
-    
-    <!-- Main JS -->
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://quezzer.vercel.app/" />
+  <meta property="og:title" content="Quazer • Challenge Your Knowledge" />
+  <meta property="og:description" content="Take fun, animated quizzes on arts, science, history & more. Earn badges and track your progress!" />
+  <meta property="og:image" content="https://quezzer.vercel.app/android-chrome-512x512.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://quezzer.vercel.app/" />
+  <meta name="twitter:title" content="Quazer • Challenge Your Knowledge" />
+  <meta name="twitter:description" content="Take fun, animated quizzes on arts, science, history & more. Earn badges and track your progress!" />
+  <meta name="twitter:image" content="https://quezzer.vercel.app/android-chrome-512x512.png" />
+
+  <!-- Preload Key Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;1,700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome & Material Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+
+  <!-- Injected by Vite -->
+</head>
+
+<body>
+  <noscript>
+    Please enable JavaScript to use Quazer—modern quizzes await!
+  </noscript>
+  <div id="root"></div>
+  <div id="portal-root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

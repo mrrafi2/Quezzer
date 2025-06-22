@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import TotalProgress from "../progress";
-import QuizCategory from "../quiz";
+import TotalProgress from "../quiz/TotalProgress";
+import QuizCategory from "../quiz/QuizCategory";
 import { useDarkMode } from "../contexts/DarkMode";
 
 export default function Home() {
@@ -84,9 +84,7 @@ export default function Home() {
           <TotalProgress />
         </div>
         <br />
-        <p style={{ textAlign: "center", fontSize: "1rem" }}>
-          Made by- <strong>👋 Rafi</strong>
-        </p>
+        
       </motion.div>
     </motion.div>
   );

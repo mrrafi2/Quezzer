@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Confetti from "react-confetti";
 import { motion } from "framer-motion";
-import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import { FaCheckCircle, FaTimesCircle, FaStar } from "react-icons/fa";
 import { ref, set } from "firebase/database";
 import { db } from "../firebaseInt/firebase";
 import { useAuth } from "../contexts/AuthContext";
@@ -12,6 +13,7 @@ export default function Result() {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
   const { results, score, label, category } = state || {};
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const getMedalName = (score) => {
     const s = parseInt(score, 10);
@@ -25,8 +27,17 @@ export default function Result() {
 
   const medalName = getMedalName(score);
   const medalMessage = medalName
-    ? `Congratulations! You have earned the ${medalName} medal!`
-    : "No medal was earned.";
+    ? `You’ve unlocked the ${medalName} Star!`
+    : `No medal this time. Try again!`;
+
+  
+  useEffect(() => {
+    if (medalName === "Gold" || medalName === "Diamond") {
+      setShowConfetti(true);
+      const t = setTimeout(() => setShowConfetti(false), 5000);
+      return () => clearTimeout(t);
+   }
+  }, [medalName]);
 
   const motivationalMessage =
     score < 60
@@ -59,48 +70,88 @@ export default function Result() {
 
   return (
     <motion.div
-      className={classes.resultPage}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+  className={classes.resultPage}
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+>
+  {showConfetti && <Confetti recycle={false} numberOfPieces={250} />}
+
+  <motion.section aria-labelledby="results-heading">
+    <motion.h2
+      className={classes.label}
+      initial={{ y: -50 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 50 }}
     >
-      <motion.h2
-        className={classes.label}
-        initial={{ y: -50 }}
-        animate={{ y: 0 }}
-        transition={{ type: "spring", stiffness: 50 }}
-      >
-        {label.toUpperCase()}
-      </motion.h2>
+      {label.toUpperCase()}
+    </motion.h2>
 
-      <motion.div
-        className={classes.summary}
-        initial={{ scale: 0.8 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
+    <motion.div
+      className={classes.summary}
+      initial={{ scale: 0.8 }}
+      animate={{ scale: 1 }}
+      transition={{ delay: 0.2, duration: 0.5 }}
+    >
+      <h3>Your Score</h3>
+      <motion.p
+        className={classes.score}
+        initial={{ x: -100 }}
+        animate={{ x: 0 }}
+        transition={{ delay: 0.4, type: "spring", stiffness: 50 }}
       >
-        <h3>Your Score</h3>
-        <motion.p
-          className={classes.score}
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
-          transition={{ delay: 0.4, type: "spring", stiffness: 50 }}
-        >
-          {score} / 100
-        </motion.p>
-      </motion.div>
+        {score} / 100
+      </motion.p>
+    </motion.div>
+  </motion.section>
 
-      {/* Medal Message Box */}
+  <motion.div
+    className={classes.medalContainer}
+    initial={{ scale: 0, opacity: 0 }}
+    animate={{ scale: 1, opacity: 1 }}
+    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+  >
+    {medalName ? (
       <motion.div
-        className={classes.msg}
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.7, duration: 0.6 }}
+        className={classes.medalIcon}
+        initial={{ y: -50, rotate: -45 }}
+        animate={{ y: 0, rotate: 0 }}
+        transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
       >
-        <p style={{ fontWeight: 700, position: "relative", top: "5px" }}>
-          {medalMessage}
-        </p>
+        <FaStar
+          size={60}
+          color={
+            medalName === "Bronze"
+              ? "#cd7f32"
+              : medalName === "Silver"
+              ? "#c0c0c0"
+              : medalName === "Gold"
+              ? "#ffd700"
+              : "#b9f2ff"
+          }
+        />
       </motion.div>
+    ) : (
+      <motion.div
+        className={classes.noMedalIcon}
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
+        <FaTimesCircle size={50} color="#e74c3c" />
+      </motion.div>
+    )}
+
+    <motion.p
+      className={classes.medalMessage}
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.6 }}
+    >
+      {medalMessage}
+    </motion.p>
+  </motion.div>
+
 
       {/* Quiz Details */}
       <div className={classes.quizDetails}>

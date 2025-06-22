@@ -1,0 +1,148 @@
+:root {
+    --primary: #3b82f6;
+    --success: #10b981;
+    --error:   #ef4444;
+    --bg:      #f9fafb;
+    --card:    #ffffff;
+    --text:    #111827;
+  }
+  
+  .wrapper {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: var(--bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  .locked {
+    text-align: center;
+    color: var(--error);
+    padding: 3rem;
+    font-size: 1.2rem;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .header h1 {
+    color: var(--text);
+    font-size: 1.8rem;
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .input {
+    flex: 1 1 200px;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 0.95rem;
+  }
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .btn:hover {
+    background: #2563eb;
+  }
+  
+  .toastError,
+  .toastSuccess {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  .toastError {
+    background: rgba(239,68,68,0.1);
+    color: var(--error);
+  }
+  .toastSuccess {
+    background: rgba(16,185,129,0.1);
+    color: var(--success);
+  }
+  
+  .loadingOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+  .loaderIcon {
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  
+  .tableContainer {
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  th, td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+  th {
+    background: #f3f4f6;
+    text-align: left;
+  }
+  .cellInput {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+  }
+  
+  .saveButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--success);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.4rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+  .saveButton:disabled {
+    background: #6b7280;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .controls { flex-direction: column; }
+    .input, .btn { width: 100%; }
+    .saveButton { width: 100%; justify-content: center; }
+  }
+  
