@@ -9,7 +9,7 @@ import Label from '@/components/quiz/Label';
 import Signup from '@/components/Auth/signup';
 import Login from '@/components/Auth/login';
 import Layout from '@/components/layout/layout';
-import AboutUs from '@/components/info/about';
+import AboutUs from '@/components/info/About';
 import ContactUs from '@/components/pages/Contact';
 import Quizzes from '@/components/quiz/QuizRunner';
 import Result from '@/components/pages/Result';
