@@ -16,7 +16,6 @@ export default function Home() {
 
   const isSmallScreen = windowWidth < 768;
 
-  // Container style with a dynamic gradient and subtle parallax effect on load
   const homeContainerStyle = {
     minHeight: "100vh",
     background: darkMode
@@ -48,7 +47,6 @@ export default function Home() {
     transition: "transform 0.3s ease",
   };
 
-  // Additional style for the progress section
   const totalProgressContainerStyle = {
     minHeight: "300px",
     width: "100%",
@@ -57,7 +55,6 @@ export default function Home() {
     justifyContent: "center",
   };
 
-  // Framer Motion variants for entrance animation
   const containerVariants = {
     hidden: { opacity: 0, y: -50 },
     visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },

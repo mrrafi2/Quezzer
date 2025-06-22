@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from '@/components/contexts/AuthContext';
 import { DarkModeProvider } from "@/components/contexts/DarkMode";
 
-import Home from '@/components/pages/Home.jsx';
+import Home from "./components/pages/Home";
 import Label from '@/components/quiz/Label';
 import Signup from '@/components/Auth/signup';
 import Login from '@/components/Auth/login';
@@ -13,7 +13,7 @@ import AboutUs from '@/components/info/about';
 import ContactUs from '@/components/pages/Contact';
 import Quizzes from '@/components/quiz/QuizRunner';
 import Result from '@/components/pages/Result';
-import CategoryProgress from '@/components/pages/catProgress';
+import CategoryProgress from '@/components/pages/CatProgress';
 import PrivateRoute from '@/components/protector/privateRoute'; 
 import Help from '@/components/info/Help';
 import Ranking from '@/components/pages/Ranking';
