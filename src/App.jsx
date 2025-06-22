@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from '@/components/contexts/AuthContext';
 import { DarkModeProvider } from "@/components/contexts/DarkMode";
 
-import Home from '@/components/pages/Home';
+import Home from '@/components/pages/Home.jsx';
 import Label from '@/components/quiz/Label';
 import Signup from '@/components/Auth/signup';
 import Login from '@/components/Auth/login';
